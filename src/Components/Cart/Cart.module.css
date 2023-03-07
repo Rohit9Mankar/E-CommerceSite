@@ -1,0 +1,20 @@
+.cart{
+
+}
+.cart button{
+    float: right;
+}
+.cartLabels{
+    display: flex;
+    justify-content: space-evenly;
+}
+.cart_Item{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cartTotal{
+    margin-top: 6px;
+    text-align: right;
+    padding:10px;
+}

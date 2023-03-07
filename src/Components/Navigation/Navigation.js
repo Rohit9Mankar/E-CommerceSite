@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import NavContext from '../../Store/NavContext';
 import { Button, Nav } from 'react-bootstrap';
 
-function Navigation() {
+function Navigation(props) {
     const navCtx = useContext(NavContext);
   
 
@@ -31,7 +31,7 @@ function Navigation() {
                         onClick={stateUpdateHandler.bind(null, "about")}>
                         About</Nav.Link>
                 </Nav.Item>
-                <Button>Cart</Button>
+                <Button onClick={props.onOpen}>Cart</Button>
             </Nav>
           
 

@@ -6,7 +6,7 @@ const productsArr = [
 
     {
         id: "01",
-        title: 'Colors',
+        title: 'Album 1',
         price: 100,
         imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
 
@@ -14,7 +14,7 @@ const productsArr = [
 
     {
         id: "02",
-        title: 'Black and white Colors',
+        title: 'Album 2',
         price: 50,
         imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
 
@@ -22,7 +22,7 @@ const productsArr = [
 
     {
         id: "03",
-        title: 'Yellow and Black Colors',
+        title: 'Album 3',
         price: 70,
         imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
 
@@ -30,7 +30,7 @@ const productsArr = [
 
     {
         id: "04",
-        title: 'Blue Color',
+        title: 'Album 4',
         price: 100,
         imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
 
@@ -47,9 +47,12 @@ const Products = () => {
             imageUrl={item.imageUrl} />
     ))
     return (
-        <div className={classes.product_container}>
+        <div style={{textAlign:"center"}}>
             <h2>Music</h2>
+            <div className={classes.product_container}>
             {productsInStore}
+            </div>
+            
         </div>
     )
 }
