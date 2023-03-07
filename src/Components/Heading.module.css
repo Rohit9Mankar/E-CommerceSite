@@ -1,0 +1,10 @@
+.heading{
+    background: greenyellow;
+    text-align: center;
+    height: 70px;
+    justify-items: center;
+}
+.heading h1{
+    color: gray;
+    padding: 5px;
+}
