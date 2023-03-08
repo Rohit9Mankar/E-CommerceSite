@@ -31,7 +31,7 @@ function Navigation(props) {
                         onClick={stateUpdateHandler.bind(null, "about")}>
                         About</Nav.Link>
                 </Nav.Item>
-                <Button onClick={props.onOpen}>Cart</Button>
+                <Button onClick={props.onOpen}>Cart {navCtx.cartQuantity}</Button>
             </Nav>
           
 

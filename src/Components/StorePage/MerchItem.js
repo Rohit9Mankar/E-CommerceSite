@@ -1,8 +1,15 @@
-import React from "react";
+import React,{ useContext } from "react";
+import NavContext from "../../Store/NavContext";
 import classes from './MerchItem.module.css';
-import { Button } from "react-bootstrap";
+
 
 const MerchItem = (props) => {
+    const navCtx = useContext(NavContext);
+
+    const addProductToCart = (event) => {
+        event.preventDefault();
+        navCtx.addItems(props);
+    };
     return (
         <div className={classes.product}>
             <div>
@@ -15,7 +22,7 @@ const MerchItem = (props) => {
             <div className={classes.product_controls}>
                 <div>$ {props.price}</div>
                 <div>
-                    <Button>Add to Cart</Button>
+                    <button onClick={addProductToCart}>Add to Cart</button>
                 </div>
             </div>
         </div>

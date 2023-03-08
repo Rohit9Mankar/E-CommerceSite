@@ -1,57 +1,25 @@
-import React from "react";
+import React,{useContext} from "react";
 import { Button } from "react-bootstrap";
 import classes from './Cart.module.css';
 import Modal from "../UI/Modal";
 import CartItem from "./CartItem";
+import NavContext from "../../Store/NavContext";
 
-const cartElements = [
 
-    {
-        id: "001",
-        title: 'Colors',
-
-        price: 100,
-
-        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
-
-        quantity: 2,
-
-    },
-
-    {
-        id: "002",
-        title: 'Black and white Colors',
-
-        price: 50,
-
-        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%202.png',
-
-        quantity: 3,
-
-    },
-
-    {
-        id: "003",
-        title: 'Yellow and Black Colors',
-
-        price: 70,
-
-        imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%203.png',
-
-        quantity: 1,
-
-    }
-
-];
 
 const Cart = (props) => {
-    const cartItems = cartElements.map((item) => (
+
+    const navCtx=useContext(NavContext);
+
+    const cartItems = navCtx.items.map((item) => (
         <CartItem
             key={item.id}
+            
+            imageUrl={item.imageUrl}
             title={item.title}
             price={item.price}
             quantity={item.quantity} />
-    ))
+    ));
 
     return (
         <Modal onClose={props.onClose}>
@@ -67,7 +35,10 @@ const Cart = (props) => {
                     <h3>Quantity</h3>
                 </div>
                 <div >
+                    <ul>
                     {cartItems}
+                    </ul>
+                    
                 </div>
                 <div className={classes.cartTotal}>
                     <h3>Total</h3>

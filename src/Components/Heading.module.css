@@ -1,10 +1,16 @@
 .heading{
-    background: greenyellow;
+    background: rgb(73, 183, 69);
     text-align: center;
-    height: 70px;
+    height: 100px;
     justify-items: center;
 }
 .heading h1{
-    color: gray;
+    color: white;
     padding: 5px;
+    font-weight: bolder;
+    line-height: normal;
+letter-spacing: 1px;
+margin-top: 7px;
+padding-top: 5px;
+font-size: 4rem;
 }
