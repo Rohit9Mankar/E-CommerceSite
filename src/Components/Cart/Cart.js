@@ -7,6 +7,7 @@ import NavContext from "../../Store/NavContext";
 
 
 
+
 const Cart = (props) => {
 
     const navCtx=useContext(NavContext);
@@ -20,6 +21,8 @@ const Cart = (props) => {
             price={item.price}
             quantity={item.quantity} />
     ));
+
+  
 
     return (
         <Modal onClose={props.onClose}>

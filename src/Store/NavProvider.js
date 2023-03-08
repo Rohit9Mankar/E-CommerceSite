@@ -3,14 +3,19 @@ import NavContext from "./NavContext";
 
 const NavProvider = (props) => {
 
-    const [navClicked, setNavClicked] = useState("store");
+    const [cartShow, setCartShow] = useState(false);
     const [cartItems, setCartItems] = useState([]);
     const [cartCount,setCartCount] = useState(0);
 
-    const navMenuUpdateHandler = (menu) => {
-        setNavClicked(menu);
-        //if (navClicked === "store");
+    const openCartHandler=()=>{
+        setCartShow(true);
+    };
+
+    const closeCartHandler=()=>{
+     
+        setCartShow(false);
     }
+   
 
     const addCartItemHandler = (item) => {
         const aindex = cartItems.findIndex((elem) => {
@@ -46,9 +51,11 @@ const NavProvider = (props) => {
     const navContext = {
         items: cartItems,
         addItems: addCartItemHandler,
-        cartQuantity:cartCount,
-        navMenu: navClicked,
-        navMenuUpdate: navMenuUpdateHandler
+        cartQuantity: cartCount,
+        cartDisplay: cartShow,
+        openCart: openCartHandler,
+        closeCart: closeCartHandler,
+       
     };
 
     return (

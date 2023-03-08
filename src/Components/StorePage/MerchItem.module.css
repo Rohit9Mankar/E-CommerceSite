@@ -31,3 +31,10 @@
   display: flex;
   justify-content: space-between;
 }
+
+.action{
+  top:0;
+  right:0;
+  position: fixed;
+ margin:1;
+}

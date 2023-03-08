@@ -1,35 +1,25 @@
-import React, { useState } from 'react';
-import './App.css';
-import Heading from './Components/Heading';
+import React from 'react';
 import Products from './Components/StorePage/Products';
-import Navigation from './Components/Navigation/Navigation';
-import NavProvider from './Store/NavProvider';
-import Footer from './Components/Footer';
-import Cart from './Components/Cart/Cart';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import RootLayout from './Components/Layout/RootLayout';
+import About from './Components/AboutPage/About';
+
+const router=createBrowserRouter([
+  {
+    path: '/',
+    element: <RootLayout/>,
+    children: [
+      {path:'/store' ,element: <Products/>},
+      {path:'/about' ,element: <About/>}
+    ],
+  },
+])
 
 function App() {
-  const [showCart, setShowCart] = useState(false);
 
-  const openCartHandler = (event) => {
-    event.preventDefault();
-    setShowCart(true);
-  };
-
-  const cartCloseHandler = (event) => {
-    event.preventDefault();
-    setShowCart(false);
-  }
 
   return (
-    <NavProvider>
-
-      <Navigation onOpen={openCartHandler}></Navigation>
-      {showCart && <Cart onClose={cartCloseHandler}></Cart>}
-      <Heading></Heading>
-      <Products></Products>
-
-      <Footer></Footer>
-    </NavProvider>
+   <RouterProvider router={router}/>
 
   );
 }
