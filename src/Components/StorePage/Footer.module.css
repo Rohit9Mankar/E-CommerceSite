@@ -1,0 +1,14 @@
+
+
+.foot{
+    background:rgb(0, 119, 255);
+    text-align: left;
+    bottom: 0;
+    margin: 0;
+    height:70px;
+    margin-bottom: none;
+}
+.foot h2{
+    padding: 7px;
+  color: aliceblue;
+}

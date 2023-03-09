@@ -1,9 +1,10 @@
 import React from "react";
+import classes from './Footer.module.css';
 
 const Footer=()=>{
     return(
-        <footer style={{background:"blue",textAlign:"left"}}>
-        <h2 style={{color:"white"}}>The Generics</h2>
+        <footer className={classes.foot}>
+        <h2 >The Generics</h2>
       </footer>
     )
 };

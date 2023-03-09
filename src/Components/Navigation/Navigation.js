@@ -16,6 +16,13 @@ const Navigation=()=>{
                 className={classes.navi}
             >
                 <ul className={classes.list}>
+                <li>
+                        <NavLink
+                            to="/home"
+                            className={({ isActive }) => isActive ? classes.active : undefined}>
+                            Home
+                        </NavLink>
+                    </li>
                     <li>
                         <NavLink
                             to="/store"
