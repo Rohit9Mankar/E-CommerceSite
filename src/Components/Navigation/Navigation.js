@@ -37,6 +37,13 @@ const Navigation=()=>{
                             About
                         </NavLink>
                     </li>
+                    <li>
+                        <NavLink
+                            to="/contact"
+                            className={({ isActive }) => isActive ? classes.active : undefined}>
+                            Contact us
+                        </NavLink>
+                    </li>
                 </ul>
 
                 

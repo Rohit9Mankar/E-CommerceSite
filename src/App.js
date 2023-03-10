@@ -1,27 +1,39 @@
 import React from 'react';
 import Products from './Components/StorePage/Products';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import RootLayout from './Components/Layout/RootLayout';
+import { Route } from 'react-router-dom';
 import About from './Components/AboutPage/About';
 import Home from './Components/HomePage/Home';
+import Navigation from './Components/Navigation/Navigation';
+import NavProvider from './Store/NavProvider';
+import Contact from './Components/ContactPage/Contact';
 
-const router=createBrowserRouter([
-  {
-    path: '/',
-    element: <RootLayout/>,
-    children: [
-      {path: '/home',element: <Home/>},
-      {path:'/store' ,element: <Products/>},
-      {path:'/about' ,element: <About/>}
-    ],
-  },
-])
+
 
 function App() {
 
 
   return (
-   <RouterProvider router={router}/>
+
+    <div>
+      <NavProvider>
+        <Navigation></Navigation>
+      </NavProvider>
+      <main>
+        <Route path="/home">
+          <Home />
+        </Route>
+        <Route path="/store">
+          <Products />
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/contact">
+          <Contact/>
+        </Route>
+      </main>
+
+    </div>
 
   );
 }
