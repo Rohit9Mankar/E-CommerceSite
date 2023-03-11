@@ -1,6 +1,8 @@
 import React,{ useContext } from "react";
+import { Link} from 'react-router-dom';
 import NavContext from "../../Store/NavContext";
 import classes from './MerchItem.module.css';
+
 
 
 const MerchItem = (props) => {
@@ -25,6 +27,8 @@ const MerchItem = (props) => {
                     <button onClick={addProductToCart}>Add to Cart</button>
                 </div>
             </div>
+           
+            <Link to="/store/product">Details</Link>
         </div>
     )
 

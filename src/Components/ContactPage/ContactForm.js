@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 import classes from './Contact.module.css';
 const ContactForm = (props) => {
 
@@ -38,8 +39,9 @@ const ContactForm = (props) => {
                     <input type="tel" id="phone"></input>
                 </div>
 
-                <div>
-                    <button type="submit">Submit</button>
+                <div className={classes.action}>
+                  
+                    <Button type="submit">Submit</Button>
                 </div>
             </div>
 
