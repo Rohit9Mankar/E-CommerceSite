@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Products from './Components/StorePage/Products';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import About from './Components/AboutPage/About';
@@ -8,11 +8,12 @@ import Contact from './Components/ContactPage/Contact';
 import ProductInfo from './Components/StorePage/ProductInfo';
 import Layout from './Components/Layout/Layout';
 import Login from './Components/LoginPage/Login';
+import NavContext from './Store/NavContext';
 
 
 
 function App() {
-
+const navCtx=useContext(NavContext);
 
   return (
 
@@ -26,9 +27,9 @@ function App() {
           <Home />
         </Route>
 
-        <Route path="/store" >
+        {navCtx.isLoggenIn && (<Route path="/store" >
           <Products />
-        </Route>
+        </Route>)}
         <Route path="/about">
           <About />
         </Route>
