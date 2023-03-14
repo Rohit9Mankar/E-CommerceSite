@@ -28,7 +28,7 @@ const MerchItem = (props) => {
                 </div>
             </div>
            
-            <Link to="/store/product">Details</Link>
+            <Link to="/productInfo">Details</Link>
         </div>
     )
 

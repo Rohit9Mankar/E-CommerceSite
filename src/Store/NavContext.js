@@ -3,8 +3,10 @@ import React from "react";
 const NavContext=React.createContext({
     items:[],
     addItems:()=>{},
-  
-    openCart: ()=>{},
-    closeCart:()=>{},
+    cartQuantity: 0,
+    tokens: "",
+    isLoggenIn: false,
+    login: ()=>{},
+    logout: ()=>{}
 })
 export default NavContext;

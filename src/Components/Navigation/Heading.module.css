@@ -3,14 +3,14 @@
     text-align: center;
     height: 100px;
     justify-items: center;
+    margin-top: 0;
+    padding-top:0;
 }
 .heading h1{
     color: white;
-    padding: 5px;
     font-weight: bolder;
     line-height: normal;
 letter-spacing: 1px;
-margin-top: 7px;
-padding-top: 5px;
+
 font-size: 4rem;
 }

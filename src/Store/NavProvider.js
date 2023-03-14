@@ -2,20 +2,27 @@ import React, { useState } from "react";
 import NavContext from "./NavContext";
 
 const NavProvider = (props) => {
-
-    const [cartShow, setCartShow] = useState(false);
+    const toBeStoredToken=localStorage.getItem("token");
+    
     const [cartItems, setCartItems] = useState([]);
     const [cartCount,setCartCount] = useState(0);
+    const [tokenId, setTokenId] = useState(toBeStoredToken);
+  
 
-    const openCartHandler=()=>{
-        setCartShow(true);
+    const userLoggedIn=!!tokenId;
+
+    const loginUserHandler = (responseToken) => {
+        setTokenId(responseToken);
+       localStorage.setItem("token",responseToken);
+       localStorage.setItem("timer","500000");
+        console.log(responseToken);
+        
     };
 
-    const closeCartHandler=()=>{
-     
-        setCartShow(false);
+    const logoutUserHandler = () => {
+        setTokenId(null);
+        localStorage.removeItem("token");
     }
-   
 
     const addCartItemHandler = (item) => {
         const aindex = cartItems.findIndex((elem) => {
@@ -26,7 +33,7 @@ const NavProvider = (props) => {
         const itemToBeAdded = cartItems[aindex];
        
 
-        if(aindex>=0) {
+        if(aindex) {
             const updatedItemOf={ ...itemToBeAdded, quantity: Number(itemToBeAdded.quantity) + 1 };
 
             setCartItems((prev) => {
@@ -52,9 +59,11 @@ const NavProvider = (props) => {
         items: cartItems,
         addItems: addCartItemHandler,
         cartQuantity: cartCount,
-        cartDisplay: cartShow,
-        openCart: openCartHandler,
-        closeCart: closeCartHandler,
+        tokens: tokenId,
+        isLoggenIn: userLoggedIn,
+        login: loginUserHandler,
+        logout: logoutUserHandler
+       
        
     };
 

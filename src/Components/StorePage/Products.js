@@ -1,12 +1,10 @@
-import React, { useContext,useState } from "react";
-import NavProvider from "../../Store/NavProvider";
+import React, { useContext, useState } from "react";
 import NavContext from "../../Store/NavContext";
 import Cart from "../Cart/Cart";
 import Footer from "./Footer";
 import MerchItem from "./MerchItem";
 
 import classes from './MerchItem.module.css';
-import { Button } from "react-bootstrap";
 
 const productsArr = [
 
@@ -48,9 +46,9 @@ const productsArr = [
 const Products = () => {
     const [showCart, setShowCart] = useState(false);
 
-const navCtx=useContext(NavContext);
+    const navCtx = useContext(NavContext);
 
-const productsInStore = productsArr.map((item) => (
+    const productsInStore = productsArr.map((item) => (
         <MerchItem
             key={item.id}
             quantity={item.quantity}
@@ -64,25 +62,27 @@ const productsInStore = productsArr.map((item) => (
     const openCartHandler = (event) => {
         event.preventDefault();
         setShowCart(true);
-      };
-    
-      const cartCloseHandler = (event) => {
+    };
+
+    const cartCloseHandler = (event) => {
         event.preventDefault();
         setShowCart(false);
-      };
+    };
 
     return (
-        <NavProvider>
-            
-            <Button onClick={openCartHandler} className={classes.action}>Cart {navCtx.cartQuantity}</Button>
-           {showCart && <Cart onClose={cartCloseHandler}/>}
-        
+
+        <React.Fragment>
+            <button onClick={openCartHandler} className={classes.action}>Cart {navCtx.cartQuantity}</button>
+            {showCart && <Cart onClose={cartCloseHandler} />}
+
             <h2>Music</h2>
             <div className={classes.product_container}>
                 {productsInStore}
             </div>
-            <Footer/>
-        </NavProvider>
+            <Footer />
+        </React.Fragment>
+
+
     )
 }
 export default Products;
