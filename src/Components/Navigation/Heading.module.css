@@ -1,10 +1,11 @@
 .heading{
-    background: rgb(73, 183, 69);
+    background: rgb(14, 166, 196);
     text-align: center;
-    height: 100px;
+    height: fit-content;
     justify-items: center;
-    margin-top: 0;
-    padding-top:0;
+    margin-top: 0px;
+    padding-top:5px;
+    padding-bottom: 5px;
 }
 .heading h1{
     color: white;

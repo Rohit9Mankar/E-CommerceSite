@@ -1,20 +1,21 @@
-import React,{useContext} from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
 import classes from './Cart.module.css';
 import Modal from "../UI/Modal";
 import CartItem from "./CartItem";
-import NavContext from "../../Store/NavContext";
+
 
 
 
 
 const Cart = (props) => {
 
-    const navCtx=useContext(NavContext);
+ 
 
-    const cartItems = navCtx.items.map((item) => (
+
+    const cartItems = props.cartArray.map((item) => (
         <CartItem
-            key={item.id}
+            key={item._id}
             
             imageUrl={item.imageUrl}
             title={item.title}
@@ -27,13 +28,13 @@ const Cart = (props) => {
     return (
         <Modal onClose={props.onClose}>
             <div className={classes.cart}>
-                <div>
+                <div className={classes.action_close}>
                     <button onClick={props.onClose}>X</button>
                     <h2>Cart</h2>
 
                 </div>
                 <div className={classes.cartLabels}>
-                    <h3>Item</h3>
+                    <h3 style={{marginRight:"15px"}}>Item</h3>
                     <h3>Price</h3>
                     <h3>Quantity</h3>
                 </div>
@@ -45,7 +46,7 @@ const Cart = (props) => {
                 </div>
                 <div className={classes.cartTotal}>
                     <h3>Total</h3>
-                    <h3>0</h3>
+                    <h3>$ {props.cartPrice}</h3>
                 </div>
                 
             </div>

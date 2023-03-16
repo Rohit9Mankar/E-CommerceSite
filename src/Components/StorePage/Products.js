@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
+import { Route } from "react-router-dom";
 import NavContext from "../../Store/NavContext";
 import Cart from "../Cart/Cart";
-import Footer from "./Footer";
 import MerchItem from "./MerchItem";
 
 import classes from './MerchItem.module.css';
+import ProductInfo from "./ProductInfo";
 
 const productsArr = [
 
@@ -45,6 +46,9 @@ const productsArr = [
 
 const Products = () => {
     const [showCart, setShowCart] = useState(false);
+    const [cartLoading, setCartLoading] = useState(false);
+    const [cartItem, setCartItem] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     const navCtx = useContext(NavContext);
 
@@ -61,7 +65,29 @@ const Products = () => {
 
     const openCartHandler = (event) => {
         event.preventDefault();
-        setShowCart(true);
+        setCartLoading(true);
+        const storedMail = localStorage.getItem("email");
+        fetch(`https://crudcrud.com/api/f6f4095d024c4c7394ffa2b66fde2454/cart${storedMail}`)
+            .then(async (response) => {
+                if (response.ok) {
+
+                    const data_1 = await response.json();
+                    let price = 0;
+                    data_1.forEach(element => {
+                        price += Number(element.quantity) * Number(element.price);
+                    });
+                    setTotalPrice(price);
+                    setCartItem(data_1);
+                    setCartLoading(false);
+                    setShowCart(true);
+                    return console.log(data_1);
+
+                }
+                else {
+                    const data_2 = await response.json();
+                    return console.log(data_2);
+                }
+            })
     };
 
     const cartCloseHandler = (event) => {
@@ -72,14 +98,25 @@ const Products = () => {
     return (
 
         <React.Fragment>
-            <button onClick={openCartHandler} className={classes.action}>Cart {navCtx.cartQuantity}</button>
-            {showCart && <Cart onClose={cartCloseHandler} />}
 
-            <h2>Music</h2>
+            <button
+                onClick={openCartHandler}
+                className={classes.action}>
+                Cart {cartLoading ? "is Loading.." : navCtx.cartQuantity}
+            </button>
+
+            {showCart && <Cart cartPrice={totalPrice} cartArray={cartItem} onClose={cartCloseHandler} />}
+
+           
             <div className={classes.product_container}>
+            <h2 style={{ textAlign: "center", width:"100%" }}>Music</h2>
                 {productsInStore}
+
             </div>
-            <Footer />
+            <Route path='/store/productInfo'>
+                <ProductInfo />
+            </Route>
+
         </React.Fragment>
 
 

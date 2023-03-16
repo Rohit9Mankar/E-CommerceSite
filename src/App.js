@@ -5,7 +5,6 @@ import About from './Components/AboutPage/About';
 import Home from './Components/HomePage/Home';
 
 import Contact from './Components/ContactPage/Contact';
-import ProductInfo from './Components/StorePage/ProductInfo';
 import Layout from './Components/Layout/Layout';
 import Login from './Components/LoginPage/Login';
 import NavContext from './Store/NavContext';
@@ -40,9 +39,7 @@ const navCtx=useContext(NavContext);
           <Contact />
 
         </Route>
-        <Route path="/productInfo" >
-          <ProductInfo />
-        </Route>
+        
         <Route path='*'>
           <Redirect to='/' />
         </Route>

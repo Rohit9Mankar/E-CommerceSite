@@ -1,5 +1,9 @@
-.cart{
-
+.action_close button{
+    padding:1px 5px;
+    background: rgb(1, 25, 36);
+    color:white;
+    border-radius:3px;
+    border:1px solid rgb(20, 1, 1);
 }
 .cart button{
     float: right;
@@ -7,10 +11,23 @@
 .cartLabels{
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 7px;
 }
 .cart_Item{
     display: flex;
     justify-content: space-between;
+    padding:4px;
+}
+.cart_Item button{
+  
+    background: red;
+    color:white;
+    border-radius:3px;
+    border:1px solid red;
+}
+.cart_Item img{
+width:30px;
+height:20px;
 }
 
 .cartTotal{

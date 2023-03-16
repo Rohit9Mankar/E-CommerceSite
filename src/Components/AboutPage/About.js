@@ -1,10 +1,11 @@
-import Footer from "../StorePage/Footer";
+import classes from './About.module.css';
 
 const About = () => {
     return (
-        <>
-            <h2 style={{textAlign:"center"}}>Music</h2>
-            <p style={{textAlign:"center"}}>
+        <div className={classes.about}>
+            <h2 style={{textAlign:"center"}}>About</h2>
+            <p>
+                <img src="/music2.jpg" alt="music" ></img>
                 Krishna Kaul was born on 4 October 1987 to a Kashmiri Pandit family in Delhi.<br></br>
                 He spent a part of his childhood in South London, where he was raised and<br></br>
                 schooled for a few years. Kaul started rapping at the age of fourteen in an<br></br>
@@ -21,8 +22,8 @@ const About = () => {
                 Save The Children in 2013.[9]<br></br>
 
             </p>
-            <Footer/>
-        </>
+            
+        </div>
 
     );
 }

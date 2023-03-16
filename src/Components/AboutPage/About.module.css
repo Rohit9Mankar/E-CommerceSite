@@ -1,0 +1,20 @@
+.about{
+    margin-top: 20px;
+   margin-left:10%; 
+   margin-right:10% ;
+   margin-bottom: 50px;
+   justify-content: center;
+}
+.about p{
+    margin-top: 10px;
+    margin-left: 10px;
+     margin-bottom: 10px; 
+      font-size: 120%;
+}
+.about img{
+    width:200px ;
+    height:300px;
+    margin:5px 10px;
+    float: left;
+    border: 2px solid #06b5bbf9;
+}

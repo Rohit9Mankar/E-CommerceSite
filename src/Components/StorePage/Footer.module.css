@@ -1,14 +1,14 @@
-
-
-.foot{
-    background:rgb(0, 119, 255);
-    text-align: left;
-    bottom: 0;
-    margin: 0;
-    height:70px;
-    margin-bottom: none;
+.foot {
+  background: rgb(53, 190, 168);
+  text-align: left;
+  bottom: 0;
+  margin: 0;
+  height: 70px;
+  margin-bottom: none;
 }
-.foot h2{
-    padding: 7px;
-  color: aliceblue;
+.foot h2 {
+  padding: 14px;
+  color: white;
+  font-style: italic;
+  margin-left: 50px;
 }

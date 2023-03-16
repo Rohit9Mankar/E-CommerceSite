@@ -47,13 +47,14 @@
     cursor: pointer;
     font: inherit;
     color: white;
-    background-color: #06b5bbf9;
-    border: 1px solid #06b5bbf9;
+    background-color: #f2983d;
+    border: 1px solid #f2983d;
     border-radius: 4px;
     padding: 0.5rem 2.5rem;
   }
   
-  .actions button:hover {
-    background-color: #06b5bb;
-    border-color: #06b5bb;
+  .actions button:hover,
+  button:focus  {
+    box-shadow: inset 0 0 0 2em var(--hover);
+    
   }

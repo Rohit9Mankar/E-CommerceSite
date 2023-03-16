@@ -2,69 +2,54 @@ import React, { useState } from "react";
 import NavContext from "./NavContext";
 
 const NavProvider = (props) => {
-    const toBeStoredToken=localStorage.getItem("token");
-    
-    const [cartItems, setCartItems] = useState([]);
-    const [cartCount,setCartCount] = useState(0);
+    const toBeStoredToken = localStorage.getItem("token");
+
+   
+    const [cartCount, setCartCount] = useState(0);
     const [tokenId, setTokenId] = useState(toBeStoredToken);
-  
 
-    const userLoggedIn=!!tokenId;
 
-    const loginUserHandler = (responseToken) => {
+    const userLoggedIn = !!tokenId;
+
+    const loginUserHandler = (responseToken, useremail) => {
+
         setTokenId(responseToken);
-       localStorage.setItem("token",responseToken);
-       localStorage.setItem("timer","500000");
+        localStorage.setItem("token", responseToken);
+
+        const newMail = useremail.split("").filter((item) => {
+            return (item !== "@" && item !== ".")
+        }).join("");
+
+        localStorage.setItem("email", newMail);
         console.log(responseToken);
-        
+
+        //setTimeout(()=>{
+        //    logoutUserHandler();
+        //},50000)
+
     };
 
     const logoutUserHandler = () => {
         setTokenId(null);
         localStorage.removeItem("token");
+        localStorage.remove("email");
     }
 
-    const addCartItemHandler = (item) => {
-        const aindex = cartItems.findIndex((elem) => {
-            return elem.id === item.id;
-        });
-    
-      
-        const itemToBeAdded = cartItems[aindex];
-       
+    const increaseCountHandler = () => {
+    setCartCount((prev)=>{return prev+1});
+    };
 
-        if(aindex) {
-            const updatedItemOf={ ...itemToBeAdded, quantity: Number(itemToBeAdded.quantity) + 1 };
-
-            setCartItems((prev) => {
-                prev[aindex] = updatedItemOf;
-                return [...prev];
-            });
-            setCartCount((prev)=> {return prev+1})
-        }
-
-        else {
-
-            setCartItems((prev) => {
-
-                return [...prev, item];
-            });
-            setCartCount((prev)=> {return prev+1});
-            console.log(cartItems);
-        }
-    }
 
 
     const navContext = {
-        items: cartItems,
-        addItems: addCartItemHandler,
+        increaseCount:increaseCountHandler,
         cartQuantity: cartCount,
         tokens: tokenId,
         isLoggenIn: userLoggedIn,
         login: loginUserHandler,
         logout: logoutUserHandler
-       
-       
+
+
     };
 
     return (

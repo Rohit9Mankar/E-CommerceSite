@@ -34,7 +34,7 @@ const LoginForm = () => {
                 if (res.ok) {
                   const data = await res.json();
                   console.log(data);
-                  navCtx.login(data.idToken);
+                  navCtx.login(data.idToken,data.email);
                   history.replace('/store');
                  
                  

@@ -1,5 +1,5 @@
 .modal{
-    top:30px;
+    top:60px;
     position: fixed;
     right:10px;
     background:white;
@@ -7,5 +7,7 @@
     width:30%;
     height:90%;
     text-align: center;
-    
+    border:2px solid rgb(12, 136, 185);
+    border-radius: 5px;
+    padding: 5px;
 }

@@ -18,7 +18,7 @@ const Navigation = () => {
     }
 
     return (
-        <div>
+        <div style={{background:"rgb(14, 166, 196)"}}>
 
             <nav
 
